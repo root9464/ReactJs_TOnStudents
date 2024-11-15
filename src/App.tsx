@@ -1,5 +1,5 @@
 import { Buffer } from 'buffer';
-import { Menu } from './modules/menu/Menu';
+import { Menu } from './components/menu/Menu';
 
 export default function App() {
   const str: string = 'Привет, мир!';
