@@ -1,9 +1,24 @@
-import { motion, useTime, useTransform } from "framer-motion";
+import { calculatePositionCircles } from "@shared/utils/util";
+import { motion, useTime } from "motion/react";
 
 export const Prewiev = () => {
   return (
     <div className="relative h-[calc(100vh-120px)] w-screen">
-      <div className="z-10">fff</div>
+      <div className="relative z-[1] flex flex-col gap-2 space-y-1">
+        <h2 className="text-lg font-semibold">Представление!</h2>
+        <p className="text-sm text-uiGray">
+          TonStudents - это уникальная платформа покупки и продажи курсовых,
+          дипломных, практических работ и многого другого...
+        </p>
+
+        <p className="text-sm text-uiGray">
+          Только на TonStudents ты можешь купить курсовые, дипломные,
+          практические работы и многое другое на выгодных условиях и самое
+          главное анонимно! В нашем сервисе креатор и пользователь/заказчик не
+          знают друг о друге ничего кроме дозволенного креатором или
+          пользователем.
+        </p>
+      </div>
       <Circles />
     </div>
   );
@@ -15,26 +30,17 @@ const Circles = () => {
   const radius = 70;
   const distance = 30;
 
-  const x1 = useTransform(
+  const { x: x1, y: y1 } = calculatePositionCircles(time, 0, radius, speed);
+  const { x: x2, y: y2 } = calculatePositionCircles(
     time,
-    (t) => radius * Math.cos((t / speed) * 2 * Math.PI),
-  );
-  const y1 = useTransform(
-    time,
-    (t) => radius * Math.sin((t / speed) * 2 * Math.PI),
-  );
-
-  const x2 = useTransform(
-    time,
-    (t) => radius * Math.cos((t / speed + 0.5) * 2 * Math.PI) + distance,
-  );
-  const y2 = useTransform(
-    time,
-    (t) => radius * Math.sin((t / speed + 0.5) * 2 * Math.PI),
+    0.5,
+    radius,
+    speed,
+    distance,
   );
 
   return (
-    <div className="relative top-1/2 flex h-[300px] w-full -translate-y-1/2 items-center justify-center">
+    <div className="relative flex h-[300px] w-full items-center justify-center">
       <motion.div
         className="absolute h-60 w-60 rounded-full bg-uiBlue blur-3xl"
         style={{ x: x1, y: y1 }}

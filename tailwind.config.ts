@@ -17,7 +17,8 @@ const config: Config = {
       },
 
       fontSize: {
-        xxs: ["10px", "12px"],
+        xxs: ["10px", "14px"],
+        xs: ["13px", "16px"],
       },
 
       width: {
