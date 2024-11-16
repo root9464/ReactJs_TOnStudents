@@ -1,5 +1,6 @@
 import { Buffer } from 'buffer';
-import { Menu } from './components/menu/Menu';
+import { Prewiev } from './components/prewiev/Prewiev';
+import { Logo } from './ui/Logo';
 
 export default function App() {
   const str: string = 'Привет, мир!';
@@ -10,9 +11,9 @@ export default function App() {
   console.log(buffer);
 
   return (
-    <>
-      <h1 className='bg-red-300'>ffff</h1>
-      <Menu />
-    </>
+    <div>
+      <Logo />
+      <Prewiev />
+    </div>
   );
 }

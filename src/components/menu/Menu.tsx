@@ -1,3 +1,7 @@
 export const Menu = () => {
-  return <div className='w-uiFullWidth h-60px bg-white rounded-20px absolute left-1/2 transform -translate-x-1/2 bottom-10'>fff</div>;
+  return (
+    <div className="absolute bottom-10 left-1/2 h-60px w-uiFullWidth -translate-x-1/2 transform rounded-20px bg-white">
+      fff
+    </div>
+  );
 };
