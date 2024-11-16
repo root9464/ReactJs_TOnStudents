@@ -1,10 +1,10 @@
+import Banner from "@assets/svg/prewiev_banner.svg";
 import { calculatePositionCircles } from "@shared/utils/util";
 import { motion, useTime } from "motion/react";
-
 export const Prewiev = () => {
   return (
     <div className="relative h-[calc(100vh-120px)] w-screen">
-      <div className="relative z-[1] flex flex-col gap-2 space-y-1">
+      <div className="relative z-[1] flex flex-col gap-2 space-y-1 rounded-2xl bg-gradient-to-r from-[rgba(255,241,241,0.03)] to-[rgba(255,250,250,0.07)] px-4 py-2 backdrop-blur-lg">
         <h2 className="text-lg font-semibold">Представление!</h2>
         <p className="text-sm text-uiGray">
           TonStudents - это уникальная платформа покупки и продажи курсовых,
@@ -20,13 +20,20 @@ export const Prewiev = () => {
         </p>
       </div>
       <Circles />
+
+      <div className="absolute top-[calc(50%-5px)] flex w-full flex-col items-center justify-center gap-y-1">
+        <h2 className="text-lg font-semibold text-white">
+          Совсем скоро мы откроемся!
+        </h2>
+        <img src={Banner} alt="" className="h-min w-full" />
+      </div>
     </div>
   );
 };
 
 const Circles = () => {
   const time = useTime();
-  const speed = 20000;
+  const speed = 10000;
   const radius = 70;
   const distance = 30;
 
